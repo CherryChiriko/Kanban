@@ -1,0 +1,11 @@
+.board {
+  display : grid;
+  grid-template-columns: 2fr 1fr;
+}
+.board-list{
+  display : grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.board-details{
+  border: 1px solid grey
+} 

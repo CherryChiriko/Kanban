@@ -1,4 +1,3 @@
-// CardList.tsx
 import React from 'react';
 import { useDrop, DropTargetMonitor } from 'react-dnd';
 import Card from './Card';

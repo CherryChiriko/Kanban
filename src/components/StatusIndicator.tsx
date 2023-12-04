@@ -1,9 +1,9 @@
 import React from 'react';
 import './Card.css'
 
-export default function StatusIndicator (status : any) {
+export default function StatusIndicator (props : any) {
   const statusColor = () => {
-    switch(status){
+    switch(props.status){
       case 'unsorted' : return "grey";
       case 'active'   : return "green"; 
       case 'inactive' : return "orange";

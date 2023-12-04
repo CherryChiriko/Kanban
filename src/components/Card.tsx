@@ -19,7 +19,7 @@ export default function Card (props : ICard) {
       ref={drag}
       style={{ opacity: isDragging ? 0.5 : 1 }}
     >
-      {props.id}
+      {props.givenName}
       <StatusIndicator status={props.status}></StatusIndicator>
     </div>
     </>

@@ -3,32 +3,19 @@ import './App.css';
 
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
-import {nanoid} from 'nanoid';
 
-import CardList from './components/CardList';
 import cardData from './assets/data/cardData.json'
+import ICard from './interfaces/ICard';
+import Board from './pages/Board';
+import { initializeCard } from './services/cardManipulation';
 
-function initializeData(){
-  setCards(prevCards => {
-    prevCards
-    return 
-    {
-      id : nanoid;
 
-    }
-    }
-    
-  )
-  // data.id = nanoid;
-  // if (!data.givenName ) { data.givenName = data.originalName }
-  // console.log(data)
-  // return data
-}
 
 function App() {
-  // const fCardData = initializeData(cardData);
   const [cards, setCards] = React.useState(cardData);
-  initializeData();
+  React.useEffect(() => {
+    setCards((prevCards : ICard[]) => prevCards.map((card: ICard) => initializeCard(card)));
+  }, []);
   const moveCard = (id: number) => {
     // Implement logic to update the order of cards when dropped
     // For simplicity, let's just log the card id for now
@@ -37,9 +24,8 @@ function App() {
 
   return (
     <div>
-      <h1>看板</h1>
       <DndProvider backend={HTML5Backend}>
-        <CardList cards={cards} moveCard={moveCard} />
+        <Board cards={cards} moveCard={moveCard}/>
       </DndProvider>  
     </div>
   );

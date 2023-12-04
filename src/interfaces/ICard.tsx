@@ -1,7 +1,7 @@
 // export type Status = 'unsorted' | 'active' | 'inactive' 
 
 export default interface ICard {
-    id : number,
+    id : string,
     originalName : string,
     givenName : string,
     status : string,
